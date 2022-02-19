@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Handle app name
         run: |
-          echo APP_NAME=$(echo ${GITHUB_REPOSITORY} | cut -d / -f 2)
+          echo APP_NAME=$(echo ${GITHUB_REPOSITORY} | cut -d / -f 2) >> $GITHUB_ENV
       -
         name: Docker meta
         id: meta
