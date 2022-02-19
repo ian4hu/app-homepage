@@ -14,11 +14,13 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+      - name: Handle app name
+        run: |
+          echo APP_NAME=$(echo ${GITHUB_REPOSITORY} | cut -d / -f 2)
       -
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
-        pre: echo ::save-state name=APP_NAME::$(echo ${GITHUB_REPOSITORY} | cut -d / -f 2)
         with:
           # list of Docker images to use as base name for tags
           images: |
